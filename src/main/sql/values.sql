@@ -1,19 +1,27 @@
-INSERT INTO PETS (name, age) VALUES ('Felix', 1);
-INSERT INTO CATS (id) VALUES (1);
+INSERT INTO PET_DATA (name, age) VALUES ('Felix', 1);
+INSERT INTO CAT_DATA (id) VALUES (1);
 
-INSERT INTO PETS (name, age) VALUES ('Rufus', 2);
-INSERT INTO DOGS (id, barkPitch) VALUES(2, 'C2');
+INSERT INTO PET_DATA (name, age) VALUES ('Rufus', 2);
+INSERT INTO DOG_DATA (id, barkPitch) VALUES(2, 'C2');
 
-select * from ALL_DOGS;
+select * from DOGS;
+select * FROM CATS;
 
-INSERT INTO PETS (name, age) VALUES ('Chico', 20) RETURNING id;
+-- INSERT INTO PET_DATA (name, age) VALUES ('Chico', 20) RETURNING id;
+-- INSERT INTO DOG_DATA VALUES (5, 'E4');
 
 WITH NEW_DOGS AS (
-    INSERT INTO PETS (name, age) VALUES ('Puller', 8) RETURNING id
+    INSERT INTO PET_DATA (name, age) VALUES ('Puller', 8) RETURNING id
 	)
-INSERT INTO DOGS (id, barkPitch) SELECT id, 'E3' FROM NEW_DOGS;
+INSERT INTO DOG_DATA (id, barkPitch) SELECT id, 'E3' FROM NEW_DOGS;
 
-select * from ALL_DOGS;
+select * from DOGS;
+SELECT * FROM CATS;
+select * from PET_DATA;
 
-INSERT INTO ALL_DOGS (id, name, age, barkPitch) VALUES (17, 'Kvast', 10, 'C2');
+SELECT * FROM PETS;
+
+
+
+-- INSERT INTO DOGS (id, name, age, barkPitch) VALUES (17, 'Kvast', 10, 'C2');
 
